@@ -3,11 +3,14 @@ function findAccountById(accounts, id) {
   return found;
 }
 
+
 function sortAccountsByLastName(accounts) {
   accounts.sort((accountA, accountB) =>
   accountA.name.last.toLowerCase() > accountB.name.last.toLowerCase() ? 1 : -1);
   return accounts;
 }
+//toLowerCase() used here to account for sort() comparing by character value instead of alphabetically
+
 
 function getTotalNumberOfBorrows(account, books) {
   let totalBorrows = 0;
@@ -20,6 +23,7 @@ function getTotalNumberOfBorrows(account, books) {
   }
   return totalBorrows;
  }
+
 
 function getBooksPossessedByAccount(account, books, authors) {
   let result = [];
@@ -47,6 +51,7 @@ function getBooksPossessedByAccount(account, books, authors) {
   });
   return result;
 }
+
 
 module.exports = {
   findAccountById,

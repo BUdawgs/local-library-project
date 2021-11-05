@@ -3,10 +3,12 @@ function findAuthorById(authors, id) {
   return found;
 }
 
+
 function findBookById(books, id) {
   let found = books.find(book => book.id === id);
   return found;
 }
+
 
 function partitionBooksByBorrowedStatus(books) {
   let available = [];
@@ -34,6 +36,8 @@ function getBorrowersForBook(book, accounts) {
     return {...borrow, ...account};
   }).slice(0, 10);
 }
+//used slice() here to return an array of 10 or fewer account objects
+
 
 module.exports = {
   findAuthorById,

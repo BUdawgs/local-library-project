@@ -2,16 +2,24 @@ function getTotalBooksCount(books) {
   return books.length;
 }
 
+
 function getTotalAccountsCount(accounts) {
   return accounts.length;
 }
 
+
+function bookBorrows(books) {
+  return (book => book.borrows.filter(record => record.returned === false).length > 0);
+}
+
+  
 function getBooksBorrowedCount(books) {
-  let booksUnreturned = books.filter(book => book.borrows.filter(record => record.returned === false).length > 0);
+  let booksUnreturned = books.filter(bookBorrows(books));
   return booksUnreturned.length;
-  }
+}
+//helper function used above to make this code more readable
 
-
+    
 function getMostCommonGenres(books) {
   let map = {};
   books.forEach(num => {
